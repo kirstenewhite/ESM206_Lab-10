@@ -1,0 +1,57 @@
+---
+title: "ESM206_Lab10"
+author: "Kirsten White"
+date: "11/29/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(janitor)
+library(usethis)
+
+library(beepr)
+library(praise)
+library(cowsay)
+library(paletteer)
+library(sf)
+
+```
+
+## beepr::beep()
+
+Use `beep()` to give yourself an audio alert
+
+## for loop + beep()
+
+```{r, eval = FALSE}
+for (i in rev(seq(1:999))) {
+  print(paste(i, "bottles of beer on the wall"))}
+beep(6)
+```
+## praise is nice - prints out random nice messages
+"${gramatical piece that R recognizes} see ?praise in console 
+
+```{r}
+praise("${EXCLAMATION}!!! This code works ${adverb_manner}!")
+
+praise("Holy ${creating}, Batman - this code works ${adverb_manner}!")
+```
+
+## cowsay::say to have characters say something 
+see ?say in console for other arguments (characters , etc) 
+
+```{r}
+say("I love tacos!", by = "pumpkin")
+
+```
+
+## usethis for everything 
+Open to Rprofile: add --> cowsay::say(praise::praise("You are ${ADJECTIVE}!"), by = "pumpkin")
+
+```{r}
+
+```
+
