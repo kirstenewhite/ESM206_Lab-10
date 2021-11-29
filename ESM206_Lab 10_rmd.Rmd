@@ -43,15 +43,31 @@ praise("Holy ${creating}, Batman - this code works ${adverb_manner}!")
 ## cowsay::say to have characters say something 
 see ?say in console for other arguments (characters , etc) 
 
+Open to Rprofile: add --> cowsay::say(praise::praise("You are ${ADJECTIVE}!"), by = "pumpkin")
 ```{r}
 say("I love tacos!", by = "pumpkin")
 
 ```
 
 ## usethis for everything 
-Open to Rprofile: add --> cowsay::say(praise::praise("You are ${ADJECTIVE}!"), by = "pumpkin")
+
+R project first, then git & GitHub repo
+
+- usethis::use_git() 
+- usethis::use_github() 
+
+## use paletteer: aggregated color palettes 
+
+- in console, type: view(palettes_d_names) to see palettes
 
 ```{r}
-
+storms %>%
+  group_by(name) %>%
+  summarize(min_pressure = min(pressure, na.rm = TRUE)) %>%
+  slice_min(n = 10, min_pressure) %>% # find storms with lowest minimum pressure 
+  ggplot(aes(x = min_pressure, y = name)) +
+  geom_col(aes(fill = name)) +
+  scale_fill_paletteer_d()
 ```
+
 
