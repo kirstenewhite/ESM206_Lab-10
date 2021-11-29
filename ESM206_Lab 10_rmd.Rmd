@@ -67,7 +67,27 @@ storms %>%
   slice_min(n = 10, min_pressure) %>% # find storms with lowest minimum pressure 
   ggplot(aes(x = min_pressure, y = name)) +
   geom_col(aes(fill = name)) +
-  scale_fill_paletteer_d()
+  scale_fill_paletteer_d("palettetown::huntail") # access existing color schemes build by other people 
 ```
 
+## Map of Jornada LTER Vegetation 
+
+```{r}
+jornada_veg <- read_sf("doc.kml") %>%
+  select(Name) %>% # spatial attribute sticks to the column you select here; aka don't lose the spatial info associated with the observations 
+  clean_names()
+  
+ggplot() +
+  geom_sf(data = jornada_veg, aes(fill = name), color = NA) +
+  scale_fill_paletteer_d("palettetown::roselia") +
+  theme_grey()+ 
+  labs(title = "Jornada Basin LTER Vegetation")
+
+# update the map so that each veg type has a different fill color
+# update theme
+# customize the color palette 
+# use ggsave to save this as an image 
+
+ggsave(filename = "my_jornada_map.png", width = 8, height = 5)
+```
 
